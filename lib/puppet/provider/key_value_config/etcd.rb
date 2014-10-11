@@ -27,7 +27,7 @@ Puppet::Type.type(:key_value_config).provide(:etcd) do
   end
 
   def destroy
-    Puppet.info("Delecting #{name}")
+    Puppet.info("Deletingg #{name}")
     @client.delete(name)
   end
 end

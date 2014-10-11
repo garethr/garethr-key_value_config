@@ -21,7 +21,7 @@ Puppet::Type.type(:key_value_config).provide(:consul) do
   end
 
   def destroy
-    Puppet.info("Delecting #{name}")
+    Puppet.info("Deleting #{name}")
     Diplomat.delete(name)
   end
 end
