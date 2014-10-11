@@ -9,6 +9,12 @@ Status](https://secure.travis-ci.org/garethr/garethr-key_value_config.png)](http
 
 ## Usage
 
+Currently this type has two providers for
+[Etcd](https://github.com/coreos/etcd) and [Consul](http://www.consul.io/) but
+writing other providers for Zookeeper or similar services should be trivial.
+
+So setting a value for Etcd:
+
 ```puppet
 key_value_config { '/foo':
   ensure   => present,
@@ -17,9 +23,15 @@ key_value_config { '/foo':
 }
 ```
 
-Currently this type has a single provider for
-[Etcd](https://github.com/coreos/etcd) but writing other providers for
-Consul or Zookeeper should be trivial.
+Or alternatvely for Consul:
+
+key_value_config { '/foo':
+  ensure   => present,
+  provider => etcd,
+  value    => 'bar',
+}
+```
+
 
 ## Configuration
 
@@ -27,3 +39,14 @@ By default the provider will try and talk with an Etcd node on localhost
 on port 4001. You can adjust this behaviour using environment variables,
 specifically: `ETCD_HOST`, `ETCD_PORT`, `ETCD_USERNAME` and
 `ETCD_PASSWORD`.
+
+The Consul provider currently tries to access Consul on localhost:8500
+and isn't configurable. This is because I couldn't find a configurable
+Consul client.
+
+
+## A note on error handling
+
+There isn't any. If you don't pass workable keys and values then you'll
+likely get errors. I'll hopefully add sensible validation and remove
+this message in the future.

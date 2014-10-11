@@ -1,6 +1,7 @@
 source "https://rubygems.org"
 
 gem "etcd"
+gem "diplomat"
 
 group :test do
   gem "rake"
@@ -15,4 +16,5 @@ group :development do
   gem "travis-lint"
   gem "puppet-blacksmith"
   gem "guard-rake"
+  gem "pry"
 end

@@ -18,6 +18,8 @@ GEM
       timers (~> 4.0.0)
     coderay (1.1.0)
     diff-lcs (1.2.5)
+    diplomat (0.1.10)
+      faraday (~> 0.9)
     etcd (0.2.4)
       mixlib-log
     ethon (0.7.1)
@@ -146,8 +148,10 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  diplomat
   etcd
   guard-rake
+  pry
   puppet (~> 3.7.0)
   puppet-blacksmith
   puppetlabs_spec_helper

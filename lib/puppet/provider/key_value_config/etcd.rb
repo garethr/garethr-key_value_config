@@ -2,7 +2,6 @@ require 'etcd'
 
 Puppet::Type.type(:key_value_config).provide(:etcd) do
   confine feature: :etcd
-
   mk_resource_methods
 
   def initialize(*args)

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-provider_class = Puppet::Type.type(:key_value_config).provider(:etcd)
+provider_class = Puppet::Type.type(:key_value_config).provider(:consul)
 
 describe provider_class do
 
@@ -9,14 +9,14 @@ describe provider_class do
       Puppet::Type.type(:key_value_config).new(
         name: '/foo',
         value: 'bar',
-        provider: 'etcd',
+        provider: 'consul',
       )
     }
 
     let(:provider) { resource.provider }
 
     it 'should be an instance of the ProviderV2' do
-      expect(provider).to be_an_instance_of Puppet::Type::Key_value_config::ProviderEtcd
+      expect(provider).to be_an_instance_of Puppet::Type::Key_value_config::ProviderConsul
     end
 
     describe 'exists?' do
