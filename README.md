@@ -28,7 +28,7 @@ Or alternatvely for Consul:
 ```puppet
 key_value_config { '/foo':
   ensure   => present,
-  provider => etcd,
+  provider => consul,
   value    => 'bar',
 }
 ```
