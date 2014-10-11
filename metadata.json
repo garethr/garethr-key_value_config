@@ -1,6 +1,6 @@
 {
   "name": "garethr-key_value_config",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "author": "Gareth Rushgrove",
   "summary": "Manage configuration in remote key/value stores with puppet resources",
   "license": "Apache 2.0",
