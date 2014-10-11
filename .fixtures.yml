@@ -1,0 +1,3 @@
+fixtures:
+  symlinks:
+    key_value_config: "#{source_dir}"
