@@ -1,8 +1,9 @@
 require 'puppetlabs_spec_helper/rake_tasks'
 require 'puppet-lint/tasks/puppet-lint'
 require 'puppet-syntax/tasks/puppet-syntax'
+require 'rubocop/rake_task'
 
-# These two gems aren't always present, for instance
+# These gems aren't always present, for instance
 # on Travis with --without development
 
 begin
@@ -10,11 +11,7 @@ begin
 rescue LoadError
 end
 
-begin
-  require 'rubocop/rake_task'
-  RuboCop::RakeTask.new
-rescue LoadError
-end
+RuboCop::RakeTask.new
 
 PuppetLint.configuration.relative = true
 PuppetLint.configuration.send("disable_80chars")
