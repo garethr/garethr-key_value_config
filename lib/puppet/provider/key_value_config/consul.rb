@@ -10,14 +10,14 @@ Puppet::Type.type(:key_value_config).provide(:consul) do
     begin
       resp = Diplomat.get(name)
       resp == resource[:value]
-    rescue Faraday::ResourceNotFound
+    rescue Diplomat::KeyNotFound
       false
     end
   end
 
   def create
     Puppet.info("Setting #{name} to #{resource[:value]}")
-    Diplomat.put(name, resource[:value])
+    Diplomat.put(name, resource[:value].to_s)
   end
 
   def destroy
